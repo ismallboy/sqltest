@@ -1,0 +1,4 @@
+22:46:15,068 INFO person.ismallboy.sqltest.Main (10) - main start
+22:46:15,427 INFO person.ismallboy.sqltest.Main (13) - main end
+22:47:31,794 INFO person.ismallboy.sqltest.Main (10) - main start
+22:47:32,107 DEBUG person.ismallboy.sqltest.Main (13) - main end
