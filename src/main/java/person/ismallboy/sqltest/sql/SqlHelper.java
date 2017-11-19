@@ -5,20 +5,23 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SqlHelper {
-    private final static String DRIVER = "com.mysql.jdbc.Driver";
-    private final static String URL = "jdbc:mysql://localhost:3306/test";
-    private final static String USERNAME = "ismallboy";
-    private final static String PASSWORD = "123456";
+    private final static String DRIVER;
+    private final static String URL;
+    private final static String USERNAME;
+    private final static String PASSWORD;
 
     private static Logger logger = LoggerFactory.getLogger(SqlHelper.class);
 
     static {
+        Properties conf = PropsUtil.loadProps("config.properties");
+        DRIVER = conf.getProperty("jdbc.driver");
+        URL = conf.getProperty("jdbc.url");
+        USERNAME = conf.getProperty("jdbc.username");
+        PASSWORD = conf.getProperty("jdbc.password");
+
         try {
             Class.forName(DRIVER);
         } catch (ClassNotFoundException e) {
